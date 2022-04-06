@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-project
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: node-project
+  template:
+    metadata:
+      labels:
+        role: node-project
+    spec:
+      containers:
+      - name: node-project
+        image: dbeola/node-project:1.20.0-15
+        ports:
+        - containerPort: 3000
